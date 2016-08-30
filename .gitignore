@@ -1,0 +1,6 @@
+try.js
+node_modules
+.idea
+.DS_Store
+build
+error.txt
