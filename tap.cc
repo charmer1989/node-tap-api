@@ -3,9 +3,10 @@
 #include "wrap_trader.h"
 
 using namespace v8;
+using namespace std;
 
 bool islog;//log?
-std::string authCode;
+std::string authCodeStr;
 
 void CreateTrader(const FunctionCallbackInfo<Value>& args) {
   WrapTrader::NewInstance(args);
@@ -24,9 +25,14 @@ void Settings(const FunctionCallbackInfo<Value>& args) {
     if (!log->IsUndefined()) {
       islog = log->BooleanValue();
     }
+
     Local<Value> auth = setting->Get(String::NewFromUtf8(isolate, "authCode"));
-    if (!log->IsUndefined()) {
-      authCode = auth->StringValue();
+
+    if (!auth->IsUndefined()) {
+
+      String::Utf8Value auth_(auth->ToString());
+      cout << ((std::string) *auth_).c_str() << endl;
+      authCodeStr = ((std::string) *auth_);
     }
   }
 

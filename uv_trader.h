@@ -17,7 +17,7 @@
 extern const TAPICHAR* GetTapTradeAPIVersion();
 extern const ITapTradeAPI* CreateTapTradeAPI();
 extern bool islog;
-extern std::string authCode;
+extern std::string authCodeStr;
 // extern ITapTradeAPI * CreateTapTradeAPI(const TapAPIApplicationInfo *appInfo, TAPIINT32 &iResult);
 
 void logger_cout(const char *content);

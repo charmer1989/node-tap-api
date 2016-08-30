@@ -126,8 +126,7 @@ void uv_trader::_async(uv_work_t * work) {
       UVConnectField* _pConnectF = static_cast<UVConnectField*>(baton->args);
       TAPIINT32 iResult = TAPIERROR_SUCCEED;
       TapAPIApplicationInfo stAppInfo;
-      logger_cout(authCode);
-      strcpy(stAppInfo.AuthCode, authCode);
+      strcpy(stAppInfo.AuthCode, authCodeStr.c_str());
       strcpy(stAppInfo.KeyOperationLogPath, "\\log");
       uv_trader_obj->m_pApi = CreateTapTradeAPI(&stAppInfo, iResult);
       // if (NULL == uv_trader_obj->m_pApi){
